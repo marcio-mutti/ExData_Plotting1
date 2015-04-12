@@ -6,6 +6,7 @@ dados$Time<-NULL
 d1<-strptime("2007-02-01", format = "%Y-%m-%d")
 d2<-strptime("2007-02-03", format = "%Y-%m-%d")
 dados<-dados[dados$Date>=d1 & dados$Date <=d2 , ]
+png(filename = "plot4.png")
 par(mfcol=c(2,2))
 plot(dados$Global_active_power, type = "l", xaxt="n", ylab = "Global Active Power", xlab = "")
 axis(1,at=c(1,1+1440,2881), labels = c("Thu","Fri","Sat"))
@@ -24,3 +25,4 @@ axis(1,at=c(1,1+1440,2881), labels = c("Thu","Fri","Sat"))
 
 plot(dados$Global_reactive_power, type="l", xaxt="n", xlab="datetime", ylab="Global_reactive_power")
 axis(1,at=c(1,1+1440,2881), labels = c("Thu","Fri","Sat"))
+dev.off()
